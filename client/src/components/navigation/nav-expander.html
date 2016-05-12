@@ -1,0 +1,11 @@
+<template class="collapsed">
+  <div class="menu-item" click.delegate="toggleExpander()">
+    <i if.bind="icon" class="fa fa-${icon} icon"></i>
+    <span class="text">${name}</span>
+    <i class="fa fa-caret-down caret"></i>
+    <i class="fa fa-caret-left caret"></i>
+  </div>
+  <div class="sub-items">
+    <content select="nav-item"></content>
+  </div>
+</template>

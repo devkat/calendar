@@ -1,0 +1,10 @@
+<template>
+
+  <require from="./input-dropdown"></require>
+
+  <label if.bind="label">${label}</label>
+  <input-dropdown options.one-time="days" value.bind="day" button-value="Tag" name.one-time="${name}-day" change.delegate="onDateChanged('date', $event)" disabled.bind="disabled"></input-dropdown>
+  <input-dropdown options.one-time="months" value.bind="month" button-value="Monat" name.one-time="${name}-month" change.delegate="onDateChanged('month', $event)" disabled.bind="disabled"></input-dropdown>
+  <input-dropdown options.one-time="years" value.bind="year" button-value="Jahr" name.one-time="${name}-year" change.delegate="onDateChanged('year', $event)" disabled.bind="disabled"></input-dropdown>
+
+</template>

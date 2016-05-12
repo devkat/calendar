@@ -1,0 +1,11 @@
+<template>
+
+  <require from="./nav-item"></require>
+  <require from="./nav-expander"></require>
+
+  <div class="header"></div>
+  <nav>
+    <nav-item model.bind="navigation['/dashboard']"></nav-item>
+    <nav-item model.bind="navigation['/calendars']"></nav-item>
+  </nav>
+</template>

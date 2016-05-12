@@ -10,30 +10,24 @@ import akka.http.scaladsl.model.HttpResponse
 import akka.http.scaladsl.model.StatusCodes
 import akka.util.ByteString
 import akka.actor.ActorRef
+import net.devkat.calendar.Common
+import scala.concurrent.Future
+import scala.xml.NodeSeq
+import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport
+import akka.http.scaladsl.unmarshalling.Unmarshal
+import akka.event.Logging
 
-class CaldavClientActor(next: ActorRef) extends Actor with ActorLogging {
+object CaldavClient extends ScalaXmlSupport {
 
-  import akka.pattern.pipe
-  import context.dispatcher
-
-  final implicit val materializer: ActorMaterializer =
-    ActorMaterializer(ActorMaterializerSettings(context.system))
- 
-  val http = Http(context.system)
- 
-  override def preStart() = {
-    http.singleRequest(Get("http://akka.io"))
-      .pipeTo(self)
+  import Common._
+  val http = Http(system)
+  
+  def getICal(url: String): Future[NodeSeq] =
+    http.singleRequest(Get(url)) flatMap {
+    case HttpResponse(StatusCodes.OK, headers, entity, _) =>
+      Unmarshal(entity).to[NodeSeq]
+    case HttpResponse(code, _, entity, _) =>
+      Future.failed(new IllegalStateException("Request failed, response code: " + code))
   }
- 
-  def receive = {
-    case HttpResponse(StatusCodes.OK, headers, entity, _) => {
-      val body = entity.dataBytes.runFold(ByteString(""))(_ ++ _)
-      log.info("Got response, body: " + body)
-      next ! "test"
-    }
-    case HttpResponse(code, _, _, _) =>
-      log.info("Request failed, response code: " + code)
-  }
- 
+
 }

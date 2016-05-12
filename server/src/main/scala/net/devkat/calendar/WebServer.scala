@@ -7,10 +7,7 @@ import scala.io.StdIn
 import com.typesafe.config.ConfigFactory
 
 object WebServer extends App with Routes {
-  implicit val system = ActorSystem("net-devkat-calendar")
-  implicit val materializer = ActorMaterializer()
-  // needed for the future flatMap/onComplete in the end
-  implicit val executionContext = system.dispatcher
+  import Common._
 
   val config = ConfigFactory.load()
 

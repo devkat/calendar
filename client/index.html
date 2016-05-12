@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calendar</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/stylesheets/style.css">
+
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="bower_components/polymer/polymer.html">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body aurelia-app="app/main">
+    <script src="jspm_packages/system.js"></script>
+    <script src="jspm.browser.js"></script>
+    <script src="jspm.config.js"></script>
+    <script>
+      document.addEventListener('WebComponentsReady', function() {
+        SystemJS.import('aurelia-bootstrapper');
+      });
+    </script>
+  </html>
+</body>

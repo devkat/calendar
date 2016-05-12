@@ -1,0 +1,109 @@
+.main {
+  $local-side-nav-width: 250px;
+  $local-header-height: 60px;
+
+  side-nav {
+    display: block;
+    width: $local-side-nav-width;
+    height: 100%;
+    position: fixed;
+    background-color: $theme-navigation;
+
+    .header {
+      height: $local-header-height;
+      background-color: $color-primary-dark;
+    }
+
+    nav {
+      nav-item,
+      nav-expander {
+        .menu-item {
+          display: block;
+          padding: 0.8em 1.5em 0.8em 1.2em;
+          color: shade($color-light-text, 30%);
+          cursor: pointer;
+          position: relative;
+          @include clearfix;
+
+          &:hover {
+            background-color: shade($theme-navigation, 20%);
+            color: $color-light-text;
+          }
+
+          span.text {
+            margin-left: 2.2em;
+            position: relative;
+            left: 0;
+          }
+
+          i.icon {
+            position: absolute;
+            font-size: 1.3em;
+          }
+
+          i.caret {
+            float: right;
+            position: relative;
+            top: 3px;
+          }
+        }
+      }
+
+      nav-expander {
+        nav-item .menu-item {
+          background-color: shade($theme-navigation, 12%);
+
+          &:hover {
+            background-color: shade($theme-navigation, 18%);
+          }
+        }
+
+        &.collapsed {
+          .sub-items {
+            display: none;
+          }
+          .fa-caret-down {
+            display: none;
+          }
+          .fa-caret-left {
+            display: block;
+          }
+        }
+
+        &.expanded {
+          > .menu-item {
+            background-color: shade($theme-navigation, 20%);
+          }
+
+          .sub-items {
+            display: block;
+          }
+          .fa-caret-down {
+            display: block;
+          }
+          .fa-caret-left {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  app-bar {
+    height: $local-header-height;
+    left: $local-side-nav-width;
+    right: 0;
+    display: block;
+    position: fixed;
+    background-color: $color-primary;
+  }
+
+  router-view {
+    position: fixed;
+    top: $local-header-height;
+    left: $local-side-nav-width;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+  }
+}

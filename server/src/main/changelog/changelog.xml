@@ -22,9 +22,21 @@
       </column>
     </createTable>
 
+    <createTable tableName="calendar_type">
+      <column name="id" type="varachar">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+    </createTable>
+
     <createTable tableName="calendar">
       <column name="id" type="bigint" autoIncrement="true">
         <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="type" type="varchar">
+        <constraints nullable="false"
+            referencedTableName="calendar_type"
+            referencedColumnNames="id"
+            foreignKeyName="fk_calendar_type"/>
       </column>
       <column name="user_id" type="bigint">
         <constraints nullable="false"
@@ -42,12 +54,19 @@
 
   </changeSet>
 
+  <changeSet id="data" author="devkat">
+    <insert tableName="calendar_type">
+      <column name="id" value="google"/>
+    </insert>
+  </changeSet>
+
   <changeSet id="test-data" author="devkat">
     <insert tableName="user">
       <column name="email" value="andreas.hartmann@gmail.com"/>
       <column name="name" value="Andreas Jim-Hartmann"/>
     </insert>
     <insert tableName="calendar">
+      <column name="calendar_type" value="google"/>
       <column name="user_id" valueComputed="select id from user where email = 'andreas.hartmann@gmail.com'"/>
       <column name="name" value="Google Calendar"/>
       <column name="url" value="https://calendar.google.com/calendar/ical/andreas.hartmann%40gmail.com/public/basic.ics"/>

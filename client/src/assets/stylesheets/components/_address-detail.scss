@@ -1,0 +1,24 @@
+address-detail {
+  display: flex;
+  justify-content: space-between;
+
+  input-field {
+    &.street {
+      flex-basis: 70%
+    }
+
+    &.zip {
+      flex-basis: 10%;
+      flex-shrink: 0;
+    }
+
+    &.city {
+      flex-basis: 20%;
+      flex-shrink: 0;
+    }
+
+    &:not(:first-child) {
+      margin-left: 2em;
+    }
+  }
+}

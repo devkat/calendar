@@ -1,0 +1,13 @@
+<template>
+  <label if.bind="label">${label}</label>
+  <input type="hidden" name.bind="name" value.one-way="value" disabled.bind="disabled"/>
+  <div class="dropdown">
+    <div class="dropdown-container">
+      <p class="dropdown-button" click.delegate="toggleMenu()">${buttonValue}</p>
+      <i class="fa fa-caret-down" aria-hidden="true"></i>
+      <ul class="dropdown-menu dropdown-select">
+        <li repeat.for="o of options" data-value.one-time="o.value" click.delegate="select($event, o.value)">${o.label}</li>
+      </ul>
+    </div>
+  </div>
+</template>

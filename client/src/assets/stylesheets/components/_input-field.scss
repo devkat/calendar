@@ -1,0 +1,9 @@
+input-field {
+  display: block;
+
+  &.focus {
+    label {
+      color: $color-primary;
+    }
+  }
+}

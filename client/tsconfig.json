@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "rootDir": "src/",
+    "sourceMap": true,
+    "target": "es6",
+    "module": "system",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node"
+  },
+  "filesGlob": [
+    "./src/**/*.ts",
+    "./jspm_packages/**/*.d.ts",
+    "./typings/browser.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

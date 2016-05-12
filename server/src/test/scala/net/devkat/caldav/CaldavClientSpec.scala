@@ -22,17 +22,6 @@ class CaldavClientSpec extends TestKit(ActorSystem("TestKitUsageSpec",
   
   import TestKitUsageSpec._
   
-  val caldavClientRef = system.actorOf(Props(classOf[CaldavClientActor], testActor))
-  
-  "A CaldavClient" should {
-    "make a request" in {
-      within(5 seconds) {
-        caldavClientRef ! "test"
-        expectMsg("test")
-      }
-    }
-  }
-  
 }
 
 object TestKitUsageSpec {
