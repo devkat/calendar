@@ -19,7 +19,7 @@ export function routes(config: RouterConfiguration): RouterConfiguration {
       name: "calendars",
       moduleId: "app/pages/calendars/calendars",
       nav: true,
-      settings: { name: "Calendars", icon: "calendar" },
+      settings: { name: "Calendars", icon: "date-range" },
     }
   ]);
 

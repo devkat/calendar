@@ -17,7 +17,7 @@ System.register([], function(exports_1, context_1) {
                 name: "calendars",
                 moduleId: "app/pages/calendars/calendars",
                 nav: true,
-                settings: { name: "Calendars", icon: "calendar" },
+                settings: { name: "Calendars", icon: "date-range" },
             }
         ]);
         return config;

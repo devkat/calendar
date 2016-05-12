@@ -1,6 +1,6 @@
 <template>
-  <a class="menu-item" href.bind="model.href">
-    <i if.bind="model.settings.icon" class="fa fa-${model.settings.icon} icon"></i>
-    <span class="text">${model.settings.name}</span>
+  <a data-route="home" href.bind="model.href">
+    <iron-icon icon="${model.settings.icon}"></iron-icon>
+    <span>${model.settings.name}</span>
   </a>
 </template>

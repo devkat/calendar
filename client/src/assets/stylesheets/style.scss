@@ -1,18 +1,15 @@
-@import "bourbon/bourbon";
-@import "base/base";
-@import "neat/neat";
+body {
+  background: #fafafa;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
 
-@import "layout";
-@import "view";
-@import "member-detail";
-
-@import "components/data-grid";
-@import "components/person-detail";
-@import "components/address-detail";
-@import "components/phone-detail";
-@import "components/email-detail";
-@import "components/input-field";
-@import "components/input-dropdown";
-@import "components/input-date";
-@import "components/radio-button";
-@import "components/form-control";
+/*
+ This class is used when we manage the focus start point (like when a new page
+ is loaded). We typically move the focus start point to the first header in the
+ page and don't want a focus ring to display. Instead the next time the user
+ presses tab the focus ring will appear on the nearest, focusable element.
+*/
+.focus-target {
+  outline: none;
+}
