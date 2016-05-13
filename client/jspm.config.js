@@ -16,7 +16,11 @@ SystemJS.config({
   ],
   map: {
     "aurelia-html-import-template-loader": "github:devkat/html-import-template-loader@master",
+    "aurelia-i18n": "npm:aurelia-i18n@0.5.2",
     "aurelia-polymer": "github:roguePanda/aurelia-polymer@1.0.0-beta.1.0.3",
+    "i18next": "npm:i18next@2.5.1",
+    "i18next-xhr-backend": "npm:i18next-xhr-backend@0.5.4",
+    "intl": "npm:intl@1.1.0",
     "webcomponents.js": "npm:webcomponents.js@0.7.22",
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.3.5",

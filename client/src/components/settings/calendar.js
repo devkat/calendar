@@ -1,4 +1,4 @@
-System.register(["aurelia-dependency-injection", "../../services/google-service"], function(exports_1, context_1) {
+System.register(["aurelia-templating", "aurelia-dependency-injection"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,35 +10,36 @@ System.register(["aurelia-dependency-injection", "../../services/google-service"
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var aurelia_dependency_injection_1, google_service_1;
-    var Calendars;
+    var aurelia_templating_1, aurelia_dependency_injection_1;
+    var Calendar;
     return {
         setters:[
+            function (aurelia_templating_1_1) {
+                aurelia_templating_1 = aurelia_templating_1_1;
+            },
             function (aurelia_dependency_injection_1_1) {
                 aurelia_dependency_injection_1 = aurelia_dependency_injection_1_1;
-            },
-            function (google_service_1_1) {
-                google_service_1 = google_service_1_1;
             }],
         execute: function() {
-            let Calendars = class Calendars {
-                constructor(googleService) {
-                    this.googleService = googleService;
-                }
-                activate(params) {
-                    return this.googleService.getConfig()
-                        .then(config => {
-                        this.config = config;
-                        return config;
-                    });
+            let Calendar = class Calendar {
+                constructor() {
+                    this.active = false;
                 }
             };
-            Calendars = __decorate([
+            __decorate([
+                aurelia_templating_1.bindable(), 
+                __metadata('design:type', Object)
+            ], Calendar.prototype, "model", void 0);
+            __decorate([
+                aurelia_templating_1.bindable(), 
+                __metadata('design:type', Boolean)
+            ], Calendar.prototype, "active", void 0);
+            Calendar = __decorate([
                 aurelia_dependency_injection_1.autoinject(), 
-                __metadata('design:paramtypes', [google_service_1.GoogleService])
-            ], Calendars);
-            exports_1("Calendars", Calendars);
+                __metadata('design:paramtypes', [])
+            ], Calendar);
+            exports_1("Calendar", Calendar);
         }
     }
 });
-//# sourceMappingURL=calendars.js.map
+//# sourceMappingURL=calendar.js.map

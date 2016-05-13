@@ -1,0 +1,27 @@
+<link rel="import" href="/bower_components/google-signin/google-signin.html">
+
+<template>
+  <require from="../../components/settings/calendar"></require>
+  <section>
+    <paper-material elevation="0">
+      <h1 class="page-title focus-target" tabindex="-1">Calendars</h1>
+      <!--
+      <google-signin label-signin="Sign in with Google" client-id.bind="config.clientId" scopes="https://www.googleapis.com/auth/calendar"></google-signin>
+      -->
+      <paper-toolbar>
+        <paper-menu-button>
+          <paper-icon-button icon="add" class="dropdown-trigger"></paper-icon-button>
+          <paper-menu class="dropdown-content">
+            <paper-item repeat.for="type of calendarTypes" tap.trigger="addCalendar(type)">
+              <span i18n="calendarType_${type}"></span>
+              <span>&nbsp;Calendar</span>
+            </paper-item>
+          </paper-menu>
+        </paper-menu-button>
+      </paper-toolbar>
+      <paper-listbox>
+        <calendar repeat.for="calendar of calendars" model.bind="calendar"></calendar>
+      </paper-listbox>
+    </paper-material>
+  </section>
+</template>

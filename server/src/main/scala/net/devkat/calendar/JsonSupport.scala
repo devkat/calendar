@@ -8,7 +8,7 @@ import net.devkat.google.OauthConfig
 
 trait JsonSupport extends SprayJsonSupport with DefaultJsonProtocol {
   
-  implicit val calendarFormat = jsonFormat4(CalendarRow)
+  implicit val calendarFormat = jsonFormat5(CalendarRow)
   implicit val googleCalendarFormat = jsonFormat3(GoogleCalendar)
   implicit val oauthConfigFormat = jsonFormat1(OauthConfig)
 }

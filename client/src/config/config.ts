@@ -11,6 +11,10 @@ export const config: any = {
         "login": "auth/login",
         "logout": "auth/logout",
       },
+      "calendarTypes": "calendarTypes",
+      "calendars": {
+        "calendars": "calendars",
+      },
       "google": {
         "config": "google/config",
       },

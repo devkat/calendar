@@ -1,11 +1,11 @@
 import {RouterConfiguration} from "aurelia-router";
 
 export function routes(config: RouterConfiguration): RouterConfiguration {
-  config.title = "Backend Test";
+  config.title = "Calendar";
   // config.options.pushState = true;
   config.map([
     {route: "", redirect: "dashboard"},
-    // dashboard
+    // Dashboard
     {
       route: "/dashboard",
       name: "dashboard",
@@ -13,14 +13,15 @@ export function routes(config: RouterConfiguration): RouterConfiguration {
       nav: true,
       settings: { name: "Dashboard", icon: "home" },
     },
-    // calendars
+    // Settings
+    // Calendars
     {
-      route: "/calendars",
+      route: "/settings/calendars",
       name: "calendars",
-      moduleId: "app/pages/calendars/calendars",
+      moduleId: "app/pages/settings/calendars",
       nav: true,
       settings: { name: "Calendars", icon: "date-range" },
-    }
+    },
   ]);
 
   return config;

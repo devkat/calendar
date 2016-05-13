@@ -18,6 +18,10 @@ System.register([], function(exports_1, context_1) {
                             "login": "auth/login",
                             "logout": "auth/logout",
                         },
+                        "calendarTypes": "calendarTypes",
+                        "calendars": {
+                            "calendars": "calendars",
+                        },
                         "google": {
                             "config": "google/config",
                         },

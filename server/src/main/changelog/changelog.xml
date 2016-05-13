@@ -23,7 +23,7 @@
     </createTable>
 
     <createTable tableName="calendar_type">
-      <column name="id" type="varachar">
+      <column name="id" type="varchar">
         <constraints nullable="false" primaryKey="true"/>
       </column>
     </createTable>
@@ -58,6 +58,9 @@
     <insert tableName="calendar_type">
       <column name="id" value="google"/>
     </insert>
+    <insert tableName="calendar_type">
+      <column name="id" value="caldav"/>
+    </insert>
   </changeSet>
 
   <changeSet id="test-data" author="devkat">
@@ -66,9 +69,9 @@
       <column name="name" value="Andreas Jim-Hartmann"/>
     </insert>
     <insert tableName="calendar">
-      <column name="calendar_type" value="google"/>
+      <column name="type" value="google"/>
       <column name="user_id" valueComputed="select id from user where email = 'andreas.hartmann@gmail.com'"/>
-      <column name="name" value="Google Calendar"/>
+      <column name="name" value="My Google Calendar"/>
       <column name="url" value="https://calendar.google.com/calendar/ical/andreas.hartmann%40gmail.com/public/basic.ics"/>
     </insert>
   </changeSet>

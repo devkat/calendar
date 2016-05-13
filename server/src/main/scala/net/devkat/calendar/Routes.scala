@@ -13,6 +13,11 @@ trait Routes extends Directives with JsonSupport with ScalaXmlSupport {
 
   val routes =
     pathPrefix("api") {
+      path("calendarTypes") {
+        get {
+          complete(Calendars.types())
+        }
+      } ~
       pathPrefix("calendars") {
         pathEnd {
           get {
