@@ -1,22 +1,59 @@
 calendar-week {
-  display: flex;
-  width: 100%;
   height: 500px;
+  display: flex;
+  flex-direction: column;
 
-  .calendar-week-grid {
+  .calendar-week-day-grid {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    .calendar-week-grid-hour {
-      border-bottom: solid 1px #CCCCCC;
+    position: relative;
+    margin-left: 10em;
+    .calendar-week-day-grid-line {
+      flex-basis: 14.286%;
+      border-left: solid 1px #CCCCCC;
+      height: 500px;
     }
   }
 
-  .calendar-week-day {
-    border-right: solid 1px #CCCCCC;
-    flex-grow: 1;
-    .calendar-week-day-header {
-      text-align: center;
+  .calendar-week-headers {
+    margin-left: 10em;
+    display: flex;
+    .calendar-header {
+      flex-basis: 14.286%;
     }
   }
+
+  .calendar-week-main {
+    position: relative;
+    top: 2em;
+    flex-basis: 14.286%;
+
+    .calendar-week-grid {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .calendar-week-grid-hour {
+        .calendar-week-grid-hour-label {
+          box-sizing: border-box;
+          width: 10em;
+          padding: .2em 1em;
+          text-align: right;
+        }
+        border-bottom: solid 1px #DDDDDD;
+        &:first-child {
+          border-top: solid 1px #DDDDDD;
+        }
+      }
+    }
+
+    .calendar-week-events {
+      display: flex;
+      margin-left: 10em;
+    }
+
+    .calendar-week-day {
+      height: 500px;
+    }
+  }
+
 }

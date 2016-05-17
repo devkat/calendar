@@ -1,10 +1,21 @@
 <template>
-  <div class="calendar-week-grid">
-    <div repeat.for="hour of hours" class="calendar-week-grid-hour">
-      ${hour}
+  <require from="./date-format"></require>
+  <div class="calendar-week-day-grid">
+    <div repeat.for="day of days" class="calendar-week-day-grid-line">
     </div>
   </div>
-  <div repeat.for="day of days" class="calendar-week-day">
-    <div class="calendar-header" i18n="dayShort_${day}"></div>
+  <div class="calendar-week-headers">
+    <div repeat.for="day of days" class="calendar-header" i18n="dayShort_${day}"></div>
+  </div>
+  <div class="calendar-week-main">
+    <div class="calendar-week-grid">
+      <div repeat.for="hour of hours" class="calendar-week-grid-hour">
+        <div class="calendar-week-grid-hour-label">${hour | dateFormat: 'HH:mm'}</div>
+      </div>
+    </div>
+    <div class="calendar-week-events">
+      <div repeat.for="day of days" class="calendar-week-day">
+      </div>
+    </div>
   </div>
 </template>
