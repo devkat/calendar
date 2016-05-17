@@ -1,4 +1,11 @@
 {
   "calendarType_google": "Google",
-  "calendarType_caldav": "CalDAV"
+  "calendarType_caldav": "CalDAV",
+  "dayShort_1": "Mon",
+  "dayShort_2": "Tue",
+  "dayShort_3": "Wed",
+  "dayShort_4": "Thu",
+  "dayShort_5": "Fri",
+  "dayShort_6": "Sat",
+  "dayShort_7": "Sun"
 }

@@ -4,20 +4,32 @@ System.register([], function(exports_1, context_1) {
     function routes(config) {
         config.title = "Calendar";
         config.map([
-            { route: "", redirect: "dashboard" },
+            { route: "", redirect: "calendar" },
             {
-                route: "/dashboard",
-                name: "dashboard",
-                moduleId: "app/pages/dashboard/dashboard",
+                route: "/calendar",
+                name: "Calendar",
+                moduleId: "app/pages/calendar/calendar",
                 nav: true,
-                settings: { name: "Dashboard", icon: "home" },
+                settings: { name: "Calendar", icon: "date-range" },
             },
             {
                 route: "/settings/calendars",
-                name: "calendars",
+                name: "settingsCalendars",
                 moduleId: "app/pages/settings/calendars",
                 nav: true,
-                settings: { name: "Calendars", icon: "date-range" },
+                settings: { name: "My Calendars", icon: "settings" },
+            },
+            {
+                route: "/settings/calendars/create/:type",
+                name: "settingsCalendarCreate",
+                moduleId: "app/pages/settings/create-calendar",
+                nav: false,
+            },
+            {
+                route: "/settings/calendars/:id",
+                name: "settingsCalendarEdit",
+                moduleId: "app/pages/settings/edit-calendar",
+                nav: false,
             },
         ]);
         return config;

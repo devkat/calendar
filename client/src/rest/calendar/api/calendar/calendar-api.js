@@ -30,6 +30,7 @@ System.register(["aurelia-dependency-injection", "../../../../config/configurati
                     this.config = config;
                     this.calendarTypesEndpoint = config.get("rest.endpoints.calendarTypes").asString();
                     this.calendarsEndpoint = config.get("rest.endpoints.calendars.calendars").asString();
+                    this.calendarEndpoint = (id) => config.get("rest.endpoints.calendars.calendar").asString().replace(":id", id.toString());
                 }
                 getCalendarTypes() {
                     return this.rest.unauthorized().fetch(this.calendarTypesEndpoint, {
@@ -39,8 +40,26 @@ System.register(["aurelia-dependency-injection", "../../../../config/configurati
                 getCalendars() {
                     return this.rest.unauthorized().fetch(this.calendarsEndpoint, {
                         method: "GET",
-                    })
-                        .then(response => { return response.json(); });
+                    }).then(response => { return response.json(); });
+                }
+                getCalendar(id) {
+                    return this.rest.unauthorized().fetch(this.calendarEndpoint(id), {
+                        method: "GET",
+                    }).then(response => { return response.json(); });
+                }
+                postCalendar(cal) {
+                    return this.rest.unauthorized().fetch(this.calendarsEndpoint, {
+                        method: "POST",
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(cal),
+                    }).then(response => { });
+                }
+                putCalendar(cal) {
+                    return this.rest.unauthorized().fetch(this.calendarEndpoint(cal.id), {
+                        method: "PUT",
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(cal),
+                    }).then(response => { });
                 }
             };
             CalendarApi = __decorate([

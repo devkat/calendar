@@ -3,13 +3,13 @@ import {autoinject} from "aurelia-dependency-injection";
 import {CalendarModel} from "../../rest/calendar/models/calendar-model";
 
 @autoinject()
-export class Calendar {
+export class CalendarItemCustomElement {
 
   @bindable()
   private model: CalendarModel;
 
   @bindable()
-  private active: boolean = false;
+  private isActive: boolean = false;
 
   constructor() { }
 

@@ -1,5 +1,5 @@
 <template>
-  <a data-route="home" href.bind="model.href" class.if="model.isActive" class="iron-selected">
+  <a href.bind="model.href" class="${model.isActive ? 'iron-selected' : ''}">
     <iron-icon icon="${model.settings.icon}"></iron-icon>
     <span>${model.settings.name}</span>
   </a>

@@ -11,7 +11,7 @@ System.register(["aurelia-templating", "aurelia-dependency-injection"], function
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var aurelia_templating_1, aurelia_dependency_injection_1;
-    var Calendar;
+    var CalendarItemCustomElement;
     return {
         setters:[
             function (aurelia_templating_1_1) {
@@ -21,25 +21,25 @@ System.register(["aurelia-templating", "aurelia-dependency-injection"], function
                 aurelia_dependency_injection_1 = aurelia_dependency_injection_1_1;
             }],
         execute: function() {
-            let Calendar = class Calendar {
+            let CalendarItemCustomElement = class CalendarItemCustomElement {
                 constructor() {
-                    this.active = false;
+                    this.isActive = false;
                 }
             };
             __decorate([
                 aurelia_templating_1.bindable(), 
                 __metadata('design:type', Object)
-            ], Calendar.prototype, "model", void 0);
+            ], CalendarItemCustomElement.prototype, "model", void 0);
             __decorate([
                 aurelia_templating_1.bindable(), 
                 __metadata('design:type', Boolean)
-            ], Calendar.prototype, "active", void 0);
-            Calendar = __decorate([
+            ], CalendarItemCustomElement.prototype, "isActive", void 0);
+            CalendarItemCustomElement = __decorate([
                 aurelia_dependency_injection_1.autoinject(), 
                 __metadata('design:paramtypes', [])
-            ], Calendar);
-            exports_1("Calendar", Calendar);
+            ], CalendarItemCustomElement);
+            exports_1("CalendarItemCustomElement", CalendarItemCustomElement);
         }
     }
 });
-//# sourceMappingURL=calendar.js.map
+//# sourceMappingURL=calendar-item.js.map

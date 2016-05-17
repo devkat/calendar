@@ -14,6 +14,7 @@ export const config: any = {
       "calendarTypes": "calendarTypes",
       "calendars": {
         "calendars": "calendars",
+        "calendar": "calendars/:id"
       },
       "google": {
         "config": "google/config",

@@ -35,6 +35,15 @@ System.register(["aurelia-dependency-injection", "aurelia-framework", "../rest/c
                 getCalendars() {
                     return this.calendarApi.getCalendars();
                 }
+                getCalendar(id) {
+                    return this.calendarApi.getCalendar(id);
+                }
+                addCalendar(cal) {
+                    return this.calendarApi.postCalendar(cal);
+                }
+                updateCalendar(cal) {
+                    return this.calendarApi.putCalendar(cal);
+                }
             };
             CalendarService = __decorate([
                 aurelia_dependency_injection_1.autoinject, 

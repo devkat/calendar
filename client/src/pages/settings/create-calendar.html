@@ -1,0 +1,12 @@
+<template>
+  <require from="../../components/settings/calendar-form.html"></require>
+  <section>
+    <paper-material elevation="0">
+      <h1>Create Calendar</h1>
+      <calendar-form model.bind="model"></calendar-form>
+      <br>
+      <paper-button raised click.delegate="save()">Add</paper-button>
+      <paper-button raised click.delegate="cancel()">Cancel</paper-button>
+    </paper-material>
+  </section>
+</template>

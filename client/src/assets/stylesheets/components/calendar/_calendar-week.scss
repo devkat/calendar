@@ -1,0 +1,22 @@
+calendar-week {
+  display: flex;
+  width: 100%;
+  height: 500px;
+
+  .calendar-week-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .calendar-week-grid-hour {
+      border-bottom: solid 1px #CCCCCC;
+    }
+  }
+
+  .calendar-week-day {
+    border-right: solid 1px #CCCCCC;
+    flex-grow: 1;
+    .calendar-week-day-header {
+      text-align: center;
+    }
+  }
+}

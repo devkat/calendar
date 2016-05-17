@@ -8,6 +8,7 @@ export class CalendarApi {
 
   private calendarTypesEndpoint: string;
   private calendarsEndpoint: string;
+  private calendarEndpoint: (number) => string;
 
   constructor(
     private rest: RestClient,
@@ -15,6 +16,7 @@ export class CalendarApi {
 
     this.calendarTypesEndpoint = config.get("rest.endpoints.calendarTypes").asString();
     this.calendarsEndpoint = config.get("rest.endpoints.calendars.calendars").asString();
+    this.calendarEndpoint = (id: number) => config.get("rest.endpoints.calendars.calendar").asString().replace(":id", id.toString());
   }
 
   public getCalendarTypes(): Promise<string[]> {
@@ -26,7 +28,29 @@ export class CalendarApi {
   public getCalendars(): Promise<CalendarModel[]> {
     return this.rest.unauthorized().fetch(this.calendarsEndpoint, {
         method: "GET",
-      })
-      .then(response => { return response.json(); });
+      }).then(response => { return response.json(); });
   }
+
+  public getCalendar(id: number): Promise<CalendarModel> {
+    return this.rest.unauthorized().fetch(this.calendarEndpoint(id), {
+      method: "GET",
+    }).then(response => { return response.json(); });
+  }
+
+  public postCalendar(cal: CalendarModel): Promise<void> {
+    return this.rest.unauthorized().fetch(this.calendarsEndpoint, {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(cal),
+    }).then(response => { });
+  }
+
+  public putCalendar(cal: CalendarModel): Promise<void> {
+    return this.rest.unauthorized().fetch(this.calendarEndpoint(cal.id), {
+      method: "PUT",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(cal),
+    }).then(response => { });
+  }
+
 }

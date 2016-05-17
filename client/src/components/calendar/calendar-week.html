@@ -1,0 +1,10 @@
+<template>
+  <div class="calendar-week-grid">
+    <div repeat.for="hour of hours" class="calendar-week-grid-hour">
+      ${hour}
+    </div>
+  </div>
+  <div repeat.for="day of days" class="calendar-week-day">
+    <div class="calendar-header" i18n="dayShort_${day}"></div>
+  </div>
+</template>

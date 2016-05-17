@@ -21,6 +21,7 @@ System.register([], function(exports_1, context_1) {
                         "calendarTypes": "calendarTypes",
                         "calendars": {
                             "calendars": "calendars",
+                            "calendar": "calendars/:id"
                         },
                         "google": {
                             "config": "google/config",

@@ -19,6 +19,12 @@ object Calendars {
   def get(calendarId: Long): Future[Option[CalendarRow]] =
     db.run(calendars.filter(_.id === calendarId).result.headOption)
 
+  def insert(calendarId: Long, calendar: CalendarRow) =
+    db.run(calendars returning calendars.map(_.id) += calendar)
+
+  def update(calendarId: Long, calendar: CalendarRow) =
+    db.run(calendars.filter(_.id === calendarId).update(calendar))
+
   def types(): Future[Seq[String]] =
     db.run(calendarTypes.map(_.id).result)
 }

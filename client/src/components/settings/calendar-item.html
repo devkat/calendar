@@ -1,7 +1,6 @@
 <template>
-  <paper-item toggles active.bind="active">
-    ${active}
-    <paper-material elevation="${active ? 1 : 0}">
+  <paper-item>
+    <paper-material elevation="1">
       <span i18n="calendarType_${model.type}"></span>
       <span>${model.name}</span>
     </paper-material>

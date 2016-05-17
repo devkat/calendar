@@ -10,23 +10,28 @@ System.register(["aurelia-templating", "aurelia-router"], function(exports_1, co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var aurelia_templating_1, aurelia_router_1;
+    var aurelia_templating_1, aurelia_router_1, aurelia_templating_2;
     var NavItemCustomElement;
     return {
         setters:[
             function (aurelia_templating_1_1) {
                 aurelia_templating_1 = aurelia_templating_1_1;
+                aurelia_templating_2 = aurelia_templating_1_1;
             },
             function (aurelia_router_1_1) {
                 aurelia_router_1 = aurelia_router_1_1;
             }],
         execute: function() {
-            class NavItemCustomElement {
-            }
+            let NavItemCustomElement = class NavItemCustomElement {
+            };
             __decorate([
                 aurelia_templating_1.bindable(), 
                 __metadata('design:type', aurelia_router_1.NavModel)
             ], NavItemCustomElement.prototype, "model", void 0);
+            NavItemCustomElement = __decorate([
+                aurelia_templating_2.containerless, 
+                __metadata('design:paramtypes', [])
+            ], NavItemCustomElement);
             exports_1("NavItemCustomElement", NavItemCustomElement);
         }
     }

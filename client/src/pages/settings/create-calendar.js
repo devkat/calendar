@@ -1,4 +1,4 @@
-System.register(["aurelia-dependency-injection", "../../services/google-service", "../../services/calendar-service", "aurelia-router"], function(exports_1, context_1) {
+System.register(["aurelia-dependency-injection", "../../services/calendar-service", "aurelia-router"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(["aurelia-dependency-injection", "../../services/google-service"
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var aurelia_dependency_injection_1, google_service_1, calendar_service_1, aurelia_router_1;
-    var Calendars;
+    var aurelia_dependency_injection_1, calendar_service_1, aurelia_router_1;
+    var CreateCalendar;
     return {
         setters:[
             function (aurelia_dependency_injection_1_1) {
                 aurelia_dependency_injection_1 = aurelia_dependency_injection_1_1;
-            },
-            function (google_service_1_1) {
-                google_service_1 = google_service_1_1;
             },
             function (calendar_service_1_1) {
                 calendar_service_1 = calendar_service_1_1;
@@ -27,28 +24,34 @@ System.register(["aurelia-dependency-injection", "../../services/google-service"
                 aurelia_router_1 = aurelia_router_1_1;
             }],
         execute: function() {
-            let Calendars = class Calendars {
-                constructor(googleService, calendarService, router) {
-                    this.googleService = googleService;
+            let CreateCalendar = class CreateCalendar {
+                constructor(calendarService, router) {
                     this.calendarService = calendarService;
                     this.router = router;
-                    this.googleService.getConfig().then(config => { this.config = config; });
-                    this.calendarService.getCalendarTypes().then(types => { this.calendarTypes = types; });
-                    this.calendarService.getCalendars().then(calendars => { this.calendars = calendars; });
                 }
-                edit(id) {
-                    this.router.navigateToRoute('settingsCalendarEdit', { id: id });
+                activate(params) {
+                    this.model = {
+                        id: null,
+                        type: params.type,
+                        name: "",
+                        url: ""
+                    };
                 }
-                add(type) {
-                    this.router.navigateToRoute('settingsCalendarCreate', { type: type });
+                save() {
+                    this.calendarService.addCalendar(this.model).then(() => {
+                        this.router.navigateToRoute('settingsCalendars');
+                    });
+                }
+                cancel() {
+                    this.router.navigateToRoute('settingsCalendars');
                 }
             };
-            Calendars = __decorate([
+            CreateCalendar = __decorate([
                 aurelia_dependency_injection_1.autoinject(), 
-                __metadata('design:paramtypes', [google_service_1.GoogleService, calendar_service_1.CalendarService, aurelia_router_1.Router])
-            ], Calendars);
-            exports_1("Calendars", Calendars);
+                __metadata('design:paramtypes', [calendar_service_1.CalendarService, aurelia_router_1.Router])
+            ], CreateCalendar);
+            exports_1("CreateCalendar", CreateCalendar);
         }
     }
 });
-//# sourceMappingURL=calendars.js.map
+//# sourceMappingURL=create-calendar.js.map

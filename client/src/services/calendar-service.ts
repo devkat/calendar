@@ -19,4 +19,16 @@ export class CalendarService {
     return this.calendarApi.getCalendars();
   }
 
+  public getCalendar(id: number): Promise<CalendarModel> {
+    return this.calendarApi.getCalendar(id);
+  }
+
+  public addCalendar(cal: CalendarModel): Promise<void> {
+    return this.calendarApi.postCalendar(cal);
+  }
+
+  public updateCalendar(cal: CalendarModel): Promise<void> {
+    return this.calendarApi.putCalendar(cal);
+  }
+
 }
