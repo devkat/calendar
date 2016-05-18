@@ -16,6 +16,9 @@
     <div class="calendar-week-events">
       <div repeat.for="day of days" class="calendar-week-day">
       </div>
+      <div repeat.for="event of events" class="calendar-event">
+        <div class="calendar-event-description">${event.description}</div>
+      </div>
     </div>
   </div>
 </template>

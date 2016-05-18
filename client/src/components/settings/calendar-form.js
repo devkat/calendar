@@ -1,4 +1,4 @@
-System.register(["aurelia-dependency-injection", "../../services/google-service"], function(exports_1, context_1) {
+System.register(["../../services/google-service", "aurelia-dependency-injection"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,37 +10,29 @@ System.register(["aurelia-dependency-injection", "../../services/google-service"
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var aurelia_dependency_injection_1, google_service_1;
-    var GoogleSigninWidgetCustomElement;
+    var google_service_1, aurelia_dependency_injection_1;
+    var CalendarFormCustomElement;
     return {
         setters:[
-            function (aurelia_dependency_injection_1_1) {
-                aurelia_dependency_injection_1 = aurelia_dependency_injection_1_1;
-            },
             function (google_service_1_1) {
                 google_service_1 = google_service_1_1;
+            },
+            function (aurelia_dependency_injection_1_1) {
+                aurelia_dependency_injection_1 = aurelia_dependency_injection_1_1;
             }],
         execute: function() {
-            let GoogleSigninWidgetCustomElement = class GoogleSigninWidgetCustomElement {
+            let CalendarFormCustomElement = class CalendarFormCustomElement {
                 constructor(googleService) {
                     this.googleService = googleService;
-                    this.config = null;
-                    this.googleService.getConfig().then(config => {
-                        this.config = config;
-                    });
-                }
-                signinSuccess(event) {
-                    const user = gapi.auth2.getAuthInstance().currentUser.get();
-                    const authResponse = user.getAuthResponse();
-                    this.googleService.setAccessToken(authResponse.access_token);
+                    googleService.getCalendars().then(calendars => { this.calendars = calendars; });
                 }
             };
-            GoogleSigninWidgetCustomElement = __decorate([
+            CalendarFormCustomElement = __decorate([
                 aurelia_dependency_injection_1.autoinject(), 
                 __metadata('design:paramtypes', [google_service_1.GoogleService])
-            ], GoogleSigninWidgetCustomElement);
-            exports_1("GoogleSigninWidgetCustomElement", GoogleSigninWidgetCustomElement);
+            ], CalendarFormCustomElement);
+            exports_1("CalendarFormCustomElement", CalendarFormCustomElement);
         }
     }
 });
-//# sourceMappingURL=google-signin-widget.js.map
+//# sourceMappingURL=calendar-form.js.map

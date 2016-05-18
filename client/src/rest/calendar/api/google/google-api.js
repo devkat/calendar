@@ -1,4 +1,4 @@
-System.register(["aurelia-dependency-injection", "../../../../config/configuration", "../../rest-client"], function(exports_1, context_1) {
+System.register(["aurelia-dependency-injection", "../../../../config/configuration", "../../rest-client", "../rest-api"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["aurelia-dependency-injection", "../../../../config/configurati
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var aurelia_dependency_injection_1, configuration_1, rest_client_1;
+    var aurelia_dependency_injection_1, configuration_1, rest_client_1, rest_api_1;
     var GoogleApi;
     return {
         setters:[
@@ -22,21 +22,23 @@ System.register(["aurelia-dependency-injection", "../../../../config/configurati
             },
             function (rest_client_1_1) {
                 rest_client_1 = rest_client_1_1;
+            },
+            function (rest_api_1_1) {
+                rest_api_1 = rest_api_1_1;
             }],
         execute: function() {
-            let GoogleApi = class GoogleApi {
-                constructor(rest, config) {
-                    this.rest = rest;
+            let GoogleApi = class GoogleApi extends rest_api_1.RestApi {
+                constructor(restClient, config) {
+                    super(restClient);
                     this.config = config;
                     this.configEndpoint = config.get("rest.endpoints.google.config").asString();
+                    this.calendarsEndpoint = config.get("rest.endpoints.google.calendars").asString();
                 }
                 getConfig() {
-                    return this.rest.unauthorized().fetch(this.configEndpoint, {
-                        method: "GET",
-                    })
-                        .then(response => {
-                        return response.json();
-                    });
+                    return this.get(this.configEndpoint);
+                }
+                getCalendars() {
+                    return this.get(this.calendarsEndpoint);
                 }
             };
             GoogleApi = __decorate([

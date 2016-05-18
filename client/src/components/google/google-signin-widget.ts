@@ -16,6 +16,7 @@ export class GoogleSigninWidgetCustomElement {
 
   public signinSuccess(event: Event): void {
     const user = gapi.auth2.getAuthInstance().currentUser.get();
-    console.log("sign in", user);
+    const authResponse = user.getAuthResponse();
+    this.googleService.setAccessToken(authResponse.access_token);
   }
 }

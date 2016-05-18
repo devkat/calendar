@@ -1,4 +1,4 @@
-System.register(["aurelia-dependency-injection", "../../../../config/configuration", "../../rest-client"], function(exports_1, context_1) {
+System.register(["aurelia-dependency-injection", "../../../../config/configuration", "../../rest-client", "../rest-api", "../../../../services/google-service"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["aurelia-dependency-injection", "../../../../config/configurati
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var aurelia_dependency_injection_1, configuration_1, rest_client_1;
+    var aurelia_dependency_injection_1, configuration_1, rest_client_1, rest_api_1, google_service_1;
     var CalendarApi;
     return {
         setters:[
@@ -22,49 +22,53 @@ System.register(["aurelia-dependency-injection", "../../../../config/configurati
             },
             function (rest_client_1_1) {
                 rest_client_1 = rest_client_1_1;
+            },
+            function (rest_api_1_1) {
+                rest_api_1 = rest_api_1_1;
+            },
+            function (google_service_1_1) {
+                google_service_1 = google_service_1_1;
             }],
         execute: function() {
-            let CalendarApi = class CalendarApi {
-                constructor(rest, config) {
-                    this.rest = rest;
+            let CalendarApi = class CalendarApi extends rest_api_1.RestApi {
+                constructor(restClient, config, googleService) {
+                    super(restClient);
                     this.config = config;
+                    this.googleService = googleService;
                     this.calendarTypesEndpoint = config.get("rest.endpoints.calendarTypes").asString();
                     this.calendarsEndpoint = config.get("rest.endpoints.calendars.calendars").asString();
                     this.calendarEndpoint = (id) => config.get("rest.endpoints.calendars.calendar").asString().replace(":id", id.toString());
+                    this.eventsEndpoint = (id) => config.get("rest.endpoints.calendars.events").asString().replace(":id", id.toString());
+                }
+                headers() {
+                    const headers = super.headers();
+                    return this.googleService.getAccessToken().caseOf({
+                        just: token => headers.set("Google-Access-Token", token),
+                        nothing: () => headers
+                    });
                 }
                 getCalendarTypes() {
-                    return this.rest.unauthorized().fetch(this.calendarTypesEndpoint, {
-                        method: "GET",
-                    }).then(response => { return response.json(); });
+                    return this.get(this.calendarTypesEndpoint);
                 }
                 getCalendars() {
-                    return this.rest.unauthorized().fetch(this.calendarsEndpoint, {
-                        method: "GET",
-                    }).then(response => { return response.json(); });
+                    return this.get(this.calendarsEndpoint);
                 }
                 getCalendar(id) {
-                    return this.rest.unauthorized().fetch(this.calendarEndpoint(id), {
-                        method: "GET",
-                    }).then(response => { return response.json(); });
+                    return this.get(this.calendarEndpoint(id));
                 }
                 postCalendar(cal) {
-                    return this.rest.unauthorized().fetch(this.calendarsEndpoint, {
-                        method: "POST",
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(cal),
-                    }).then(response => { });
+                    return this.post(this.calendarsEndpoint, cal);
                 }
                 putCalendar(cal) {
-                    return this.rest.unauthorized().fetch(this.calendarEndpoint(cal.id), {
-                        method: "PUT",
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(cal),
-                    }).then(response => { });
+                    return this.put(this.calendarEndpoint(cal.id), cal);
+                }
+                getEvents(calendarId) {
+                    return this.get(this.eventsEndpoint(calendarId));
                 }
             };
             CalendarApi = __decorate([
                 aurelia_dependency_injection_1.autoinject(), 
-                __metadata('design:paramtypes', [rest_client_1.RestClient, configuration_1.Configuration])
+                __metadata('design:paramtypes', [rest_client_1.RestClient, configuration_1.Configuration, google_service_1.GoogleService])
             ], CalendarApi);
             exports_1("CalendarApi", CalendarApi);
         }

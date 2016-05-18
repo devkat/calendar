@@ -11,8 +11,10 @@
       "aurelia-router": "npm:aurelia-router@^1.0.0-beta.1.2.0",
       "font-awesome": "npm:font-awesome@^4.6.1",
       "i18next-xhr-backend": "npm:i18next-xhr-backend@^0.5.4",
+      "immutable": "npm:immutable@^3.8.1",
       "moment": "npm:moment@^2.13.0",
-      "ramda": "npm:ramda@^0.21.0"
+      "ramda": "npm:ramda@^0.21.0",
+      "tsmonad": "npm:tsmonad@^0.6.0"
     },
     "devDependencies": {
       "css": "github:systemjs/plugin-css@^0.1.21"

@@ -10,10 +10,12 @@ export const config: any = {
       "calendarTypes": "calendarTypes",
       "calendars": {
         "calendars": "calendars",
-        "calendar": "calendars/:id"
+        "calendar": "calendars/:id",
+        "events": "calendars/:id/events",
       },
       "google": {
         "config": "google/config",
+        "calendars": "google/calendars",
       },
     },
   },

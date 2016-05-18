@@ -2,6 +2,7 @@ import {autoinject} from "aurelia-dependency-injection";
 import {Aurelia} from "aurelia-framework";
 import {CalendarApi} from "../rest/calendar/api/calendar/calendar-api";
 import {CalendarModel} from "../rest/calendar/models/calendar-model";
+import {EventModel} from "../rest/calendar/models/event-model";
 
 @autoinject
 export class CalendarService {
@@ -29,6 +30,10 @@ export class CalendarService {
 
   public updateCalendar(cal: CalendarModel): Promise<void> {
     return this.calendarApi.putCalendar(cal);
+  }
+
+  public getEvents(calId: number): Promise<EventModel[]> {
+    return this.calendarApi.getEvents(calId);
   }
 
 }

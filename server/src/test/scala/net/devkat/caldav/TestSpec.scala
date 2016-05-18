@@ -1,19 +1,20 @@
 package net.devkat.caldav
 
+import java.util
+
+import org.scalatest.FlatSpec
+
 /**
   * Created by nobby on 17.05.16.
   */
-object TestSpec {
+class TestSpec extends FlatSpec {
 
-  case class DataType()
-  case class PotentiallyDifferentDataType()
 
-  def func1[T, U](A: Array[Array[T]], B: Array[Array[T]],
-                  fn: (T, T) => U): Array[Array[U]] =
-    A.zip(B) map { case (a, b) => func2(a, b, fn) }
-
-  def func2[T, U](A: Array[T], B: Array[T],
-                  fn: (T, T) => U): Array[U] =
-    A.zip(B) map { case (a, b) => fn(a, b) }
-
+  "It" should "" in {
+    val temp = new util.ArrayList[String]()
+    temp.add("hi")
+    for (i <- 0 to temp.size() - 1) {
+      print(temp.get(i).getClass)
+    }
+  }
 }

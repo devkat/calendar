@@ -11,6 +11,4 @@ export class CalendarItemCustomElement {
   @bindable()
   private isActive: boolean = false;
 
-  constructor() { }
-
 }

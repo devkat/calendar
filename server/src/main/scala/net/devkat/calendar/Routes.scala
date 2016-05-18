@@ -26,21 +26,24 @@ trait Routes extends Directives with JsonSupport with ScalaXmlSupport {
             complete(Calendars.all())
           }
         } ~
-        path(IntNumber) { id =>
-          get {
-            complete(Calendars.get(id))
-          } ~
-          put {
-            entity(as[CalendarRow]) { calendar => {
-              onSuccess(Calendars.update(id, calendar)) {
-                complete(204, _)
-              }
+        pathPrefix(IntNumber) { id =>
+          pathEnd {
+            get {
+              complete(Calendars.get(id))
+            } ~
+            put {
+              entity(as[CalendarRow]) { calendar => {
+                onSuccess(Calendars.update(id, calendar)) {
+                  complete(204, _)
+                }
+              }}
             }
+          } ~
+          path("events") {
+            get {
+              complete(getEvents(id))
             }
           }
-        } ~
-        path("ical" / IntNumber) { id =>
-          complete(getICal(id))
         }
       } ~
       /*

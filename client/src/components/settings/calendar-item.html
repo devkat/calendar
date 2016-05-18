@@ -2,6 +2,17 @@
   <paper-item>
     <paper-material elevation="1">
       <span i18n="calendarType_${model.type}"></span>
+      <paper-menu-button>
+        <paper-button class="dropdown-trigger" raised>
+          <span>Calendar</span>
+          <iron-icon icon="check"></iron-icon>
+        </paper-button>
+        <paper-menu class="dropdown-content">
+          <paper-item repeat.for="calendar of calendars" tap.trigger="selectCalendar(calendar)">
+            <span>${calendar.name}</span>
+          </paper-item>
+        </paper-menu>
+      </paper-menu-button>
       <span>${model.name}</span>
     </paper-material>
   </paper-item>
