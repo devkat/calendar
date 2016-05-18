@@ -1,0 +1,10 @@
+<template>
+  <template if.bind="config">
+    <link rel="import" href="/bower_components/google-signin/google-signin.html">
+    <google-signin ref="googleSignin" brand="google" width="wide"
+                   if.bind="config"
+                   client-id.bind="config.clientId"
+                   scopes="https://www.googleapis.com/auth/calendar"
+                   google-signin-success.delegate="signinSuccess()"></google-signin>
+  </template>
+</template>

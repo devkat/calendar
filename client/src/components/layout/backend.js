@@ -30,13 +30,8 @@ System.register(["./../../services/session-service", "aurelia-dependency-injecti
             let BackendCustomElement = class BackendCustomElement {
                 constructor(sessionService, router) {
                     this.sessionService = sessionService;
-                    this.heading = "Welcome to Aurelia!";
-                    this.firstName = "John";
-                    this.lastName = "Doe";
+                    this.router = router;
                     router.configure(routes_1.routes);
-                }
-                get fullName() {
-                    return `${this.firstName} ${this.lastName}`;
                 }
                 logout() {
                     this.sessionService.logout();

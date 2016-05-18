@@ -8,9 +8,7 @@ import "font-awesome/css/font-awesome.css!";
 export function configure(aurelia: Aurelia): void {
   aurelia.use
     .standardConfiguration()
-    .developmentLogging();
-
-  aurelia.use
+    .developmentLogging()
     .plugin("aurelia-polymer")
     .plugin("aurelia-html-import-template-loader")
     .plugin('aurelia-i18n', (instance) => {
@@ -32,5 +30,5 @@ export function configure(aurelia: Aurelia): void {
 
   const sessionService: SessionService = aurelia.container.get(SessionService);
 
-  aurelia.start().then(() => aurelia.setRoot(sessionService.appRoot()));
+  aurelia.start().then(() => aurelia.setRoot("app/components/layout/backend"));
 }

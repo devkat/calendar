@@ -5,8 +5,7 @@ System.register(["./services/session-service", 'i18next-xhr-backend', "font-awes
     function configure(aurelia) {
         aurelia.use
             .standardConfiguration()
-            .developmentLogging();
-        aurelia.use
+            .developmentLogging()
             .plugin("aurelia-polymer")
             .plugin("aurelia-html-import-template-loader")
             .plugin('aurelia-i18n', (instance) => {
@@ -22,7 +21,7 @@ System.register(["./services/session-service", 'i18next-xhr-backend', "font-awes
             });
         });
         const sessionService = aurelia.container.get(session_service_1.SessionService);
-        aurelia.start().then(() => aurelia.setRoot(sessionService.appRoot()));
+        aurelia.start().then(() => aurelia.setRoot("app/components/layout/backend"));
     }
     exports_1("configure", configure);
     return {

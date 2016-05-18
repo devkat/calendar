@@ -8,7 +8,6 @@ object Oauth {
   
   lazy val config = {
     val cfg = ConfigFactory.load().getConfig("google.oauth")
-    println(cfg)
     OauthConfig(cfg.getString("clientId"))
   }
   

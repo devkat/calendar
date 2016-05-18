@@ -7,10 +7,6 @@ System.register([], function(exports_1, context_1) {
         execute: function() {
             exports_1("config", config = {
                 "name": "Test application",
-                "appRoot": {
-                    "guest": "app/components/layout/backend",
-                    "authenticated": "app/components/layout/backend",
-                },
                 "rest": {
                     "baseUrl": "/api/",
                     "endpoints": {

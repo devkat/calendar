@@ -7,6 +7,7 @@ object Dependencies {
   val h2Version = "1.3.170"
   val googleCalendarApiVersion = "v3-rev182-1.22.0"
   val googleAuthClientJettyVersion = "1.22.0"
+  val jodaTimeVersion = "2.9.3"
   val scalaTestVersion = "2.2.6"
 
   val akkaHttpCore = "com.typesafe.akka" %% "akka-http-core" % akkaVersion
@@ -18,6 +19,7 @@ object Dependencies {
   val slickCodegen = "com.typesafe.slick" %% "slick-codegen" % slickVersion % "compile"
   val slf4j = "org.slf4j" % "slf4j-nop" % slf4jVersion
   val h2 = "com.h2database" % "h2" % h2Version
+  val jodaTime = "joda-time" % "joda-time" % jodaTimeVersion
   
   val googleCalendarApi = "com.google.apis" % "google-api-services-calendar" % googleCalendarApiVersion
   val googleAuthClientJetty = "com.google.oauth-client" % "google-oauth-client-jetty" % googleAuthClientJettyVersion
@@ -37,6 +39,7 @@ object Dependencies {
     h2,
     googleCalendarApi,
     googleAuthClientJetty,
+    jodaTime,
     scalactic,
     scalaTest
   )

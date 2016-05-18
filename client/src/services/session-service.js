@@ -33,29 +33,20 @@ System.register(["aurelia-dependency-injection", "aurelia-framework", "../rest/c
                     this.authApi = authApi;
                     this.config = config;
                     this.session = undefined;
-                    this.guestRoot = config.get("appRoot.guest").asString();
-                    this.authenticatedRoot = config.get("appRoot.authenticated").asString();
                 }
                 login(username, password) {
                     this.authApi.login(username, password)
                         .then(response => {
                         this.session = response;
-                        this.app.setRoot(this.authenticatedRoot);
                     });
                 }
                 logout() {
                     this.authApi.logout().then(response => {
                         this.session = undefined;
-                        this.app.setRoot(this.guestRoot);
                     });
                 }
                 isAuthenticated() {
                     return this.session !== undefined;
-                }
-                appRoot() {
-                    return this.isAuthenticated()
-                        ? this.authenticatedRoot
-                        : this.guestRoot;
                 }
             };
             SessionService = __decorate([

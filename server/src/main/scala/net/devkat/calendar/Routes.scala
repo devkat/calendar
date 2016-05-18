@@ -4,6 +4,7 @@ import akka.http.scaladsl.model.ContentTypes._
 import akka.http.scaladsl.server.Directives
 import net.devkat.calendar.db.Calendars
 import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport
+import akka.http.scaladsl.model.headers.Authorization
 import net.devkat.calendar.Tables.CalendarRow
 import net.devkat.calendar.google.GoogleCalendarAdapter
 import net.devkat.google.Oauth
@@ -42,13 +43,24 @@ trait Routes extends Directives with JsonSupport with ScalaXmlSupport {
           complete(getICal(id))
         }
       } ~
+      /*
+      pathPrefix("events") {
+        headerValue[Authorization] { authHeader =>
+          path(IntNumber) { calendarId =>
+            complete(getEvents(authHeader.value, calendarId))
+          }
+        }
+      } ~
+      */
       pathPrefix("google") {
         path("config") {
           complete(Oauth.config)
         } ~
         path("calendars") {
           get {
-            complete(GoogleCalendarAdapter.getCalendars())
+            headerValueByType[Authorization]() { authHeader =>
+              complete(GoogleCalendarAdapter.getCalendars(authHeader.credentials.token))
+            }
           }
         }
       }

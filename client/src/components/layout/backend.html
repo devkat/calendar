@@ -19,15 +19,13 @@
 <link rel="import" href="/bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="/bower_components/paper-toolbar/paper-toolbar.html">
 
-<!-- Calendar -->
-<link rel="import" href="/bower_components/basic-calendar-week/basic-calendar-week.html">
-
 <!-- App specific -->
 <link rel="import" href="../styles/app-theme.html">
 <link rel="import" href="../styles/shared-styles.html">
 
 <template>
   <require from="../navigation/navigation"></require>
+  <require from="../google/google-signin-widget"></require>
 
   <paper-drawer-panel id="paperDrawerPanel" responsive-width="840px">
     <!-- Drawer Scroll Header Panel -->
@@ -49,6 +47,7 @@
         <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
 
         <span class="space"></span>
+        <google-signin-widget></google-signin-widget>
 
         <!-- Application name -->
         <div class="middle middle-container">

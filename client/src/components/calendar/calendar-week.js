@@ -15,7 +15,7 @@ System.register(["ramda", "moment"], function(exports_1, context_1) {
             class CalendarWeekCustomElement {
                 constructor() {
                     this.days = ramda_1.default.range(1, 8);
-                    this.hours = ramda_1.default.range(0, 24).map(h => moment_1.default().hour(h));
+                    this.hours = ramda_1.default.range(0, 24).map(h => moment_1.default().hour(h).minute(0));
                 }
             }
             exports_1("CalendarWeekCustomElement", CalendarWeekCustomElement);
