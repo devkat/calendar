@@ -1,8 +1,8 @@
 <template>
-  <template if.bind="!signedIn">
+  <template if.bind="!loaded">
     Please sign in to Google.
   </template>
-  <template if.bind="signedIn">
+  <template if.bind="loaded">
     <paper-menu-button>
       <paper-button class="dropdown-trigger" raised>
         <span>Select calendar …</span>
@@ -10,7 +10,7 @@
       </paper-button>
       <paper-menu class="dropdown-content">
         <paper-item repeat.for="calendar of calendars" tap.trigger="calendar(calendar)">
-          <span>${calendar.name}</span>
+          <span>${calendar.summary}</span>
         </paper-item>
       </paper-menu>
     </paper-menu-button>

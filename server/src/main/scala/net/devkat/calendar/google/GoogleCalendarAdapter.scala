@@ -6,7 +6,7 @@ import net.devkat.google.GoogleCalendarClient
 
 import scala.concurrent.Future
 
-case class GoogleCalendar(id: String, summary: String, description: String)
+case class GoogleCalendar(id: String, summary: Option[String], description: Option[String])
 
 object GoogleCalendarAdapter {
 
@@ -15,7 +15,7 @@ object GoogleCalendarAdapter {
 
   def getCalendars(accessToken: String) =
     GoogleCalendarClient.getCalendars(accessToken) map { entry =>
-      GoogleCalendar(entry.getId, entry.getSummary, entry.getDescription)
+      GoogleCalendar(entry.getId, Option(entry.getSummary), Option(entry.getDescription))
     }
 
   def getEvents(url: String): Seq[Event] = {

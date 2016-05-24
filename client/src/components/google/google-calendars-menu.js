@@ -35,23 +35,22 @@ System.register(["../../services/google-service", "aurelia-dependency-injection"
                     this.googleService = googleService;
                     this.googleAuthService = googleAuthService;
                     this.eventAggregator = eventAggregator;
-                    this.signedIn = false;
+                    this.loaded = false;
                     this.eventAggregator.subscribe('google-signin', accessToken => {
-                        this.signIn();
+                        this.load();
                     });
                 }
-                populateCalendars() {
-                    this.googleService.getCalendars().then(calendars => { this.calendars = calendars; });
-                }
-                signIn() {
-                    console.log("signed in");
-                    this.signedIn = true;
+                load() {
+                    this.googleService.getCalendars().then(calendars => {
+                        this.calendars = calendars;
+                        this.loaded = true;
+                    });
                 }
             };
             __decorate([
                 aurelia_templating_1.bindable, 
                 __metadata('design:type', Boolean)
-            ], GoogleCalendarsMenuCustomElement.prototype, "signedIn", void 0);
+            ], GoogleCalendarsMenuCustomElement.prototype, "loaded", void 0);
             GoogleCalendarsMenuCustomElement = __decorate([
                 aurelia_dependency_injection_1.autoinject(), 
                 __metadata('design:paramtypes', [google_service_1.GoogleService, google_auth_service_1.GoogleAuthService, (typeof (_a = typeof aurelia_event_aggregator_1.EventAggregator !== 'undefined' && aurelia_event_aggregator_1.EventAggregator) === 'function' && _a) || Object])

@@ -31,7 +31,6 @@ System.register(["aurelia-dependency-injection", "tsmonad", "aurelia-event-aggre
                 }
                 setAccessToken(accessToken) {
                     this._accessToken = tsmonad_1.Maybe.just(accessToken);
-                    console.log("signed in ...");
                     this.eventAggregator.publish('google-signin', accessToken);
                 }
                 getAccessToken() {

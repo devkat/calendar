@@ -11,24 +11,22 @@ export class GoogleCalendarsMenuCustomElement {
   private calendars: GoogleCalendarModel[];
 
   @bindable
-  private signedIn: boolean = false;
+  private loaded: boolean = false;
 
   constructor(
     private googleService: GoogleService,
     private googleAuthService: GoogleAuthService,
     private eventAggregator: EventAggregator) {
     this.eventAggregator.subscribe('google-signin', accessToken => {
-      this.signIn();
+      this.load();
     });
   }
 
-  public populateCalendars(): void {
-    this.googleService.getCalendars().then(calendars => { this.calendars = calendars; });
-  }
-
-  public signIn(): void {
-    console.log("signed in");
-    this.signedIn = true;
+  public load(): void {
+    this.googleService.getCalendars().then(calendars => {
+      this.calendars = calendars;
+      this.loaded = true;
+    });
   }
 
 }

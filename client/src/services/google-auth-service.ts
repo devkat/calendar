@@ -12,7 +12,6 @@ export class GoogleAuthService {
 
   public setAccessToken(accessToken: string): void {
     this._accessToken = Maybe.just(accessToken);
-    console.log("signed in ...");
     this.eventAggregator.publish('google-signin', accessToken);
   }
 
