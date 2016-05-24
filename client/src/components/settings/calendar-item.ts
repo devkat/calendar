@@ -6,9 +6,9 @@ import {CalendarModel} from "../../rest/calendar/models/calendar-model";
 export class CalendarItemCustomElement {
 
   @bindable()
-  private model: CalendarModel;
+  public model: CalendarModel;
 
   @bindable()
-  private isActive: boolean = false;
+  public isActive: boolean = false;
 
 }

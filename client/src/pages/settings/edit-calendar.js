@@ -36,19 +36,20 @@ System.register(["aurelia-dependency-injection", "../../services/calendar-servic
                 }
                 save() {
                     this.calendarService.updateCalendar(this.model).then(() => {
-                        this.router.navigateToRoute('settingsCalendars');
+                        this.router.navigateToRoute("settingsCalendars");
                     });
                 }
                 cancel() {
-                    this.router.navigateToRoute('settingsCalendars');
+                    this.router.navigateToRoute("settingsCalendars");
                 }
             };
             EditCalendar = __decorate([
                 aurelia_dependency_injection_1.autoinject(), 
-                __metadata('design:paramtypes', [calendar_service_1.CalendarService, aurelia_router_1.Router])
+                __metadata('design:paramtypes', [calendar_service_1.CalendarService, (typeof (_a = typeof aurelia_router_1.Router !== 'undefined' && aurelia_router_1.Router) === 'function' && _a) || Object])
             ], EditCalendar);
             exports_1("EditCalendar", EditCalendar);
         }
     }
+    var _a;
 });
 //# sourceMappingURL=edit-calendar.js.map

@@ -13,23 +13,23 @@ export class CreateCalendar {
     private router: Router
   ) {}
 
-  activate(params) {
+  public activate(params: any): void {
     this.model = {
-      id: null,
+      id: undefined,
       type: params.type,
       name: "",
-      url: ""
+      url: "",
     } as CalendarModel;
   }
 
-  save() {
+  public save(): void {
     this.calendarService.addCalendar(this.model).then(() => {
-      this.router.navigateToRoute('settingsCalendars');
+      this.router.navigateToRoute("settingsCalendars");
     });
   }
 
-  cancel() {
-    this.router.navigateToRoute('settingsCalendars');
+  public cancel(): void {
+    this.router.navigateToRoute("settingsCalendars");
   }
 
 }

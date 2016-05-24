@@ -39,10 +39,11 @@ System.register(["aurelia-dependency-injection", "aurelia-router", "ramda"], fun
             };
             NavigationCustomElement = __decorate([
                 aurelia_dependency_injection_1.autoinject(), 
-                __metadata('design:paramtypes', [aurelia_router_1.Router])
+                __metadata('design:paramtypes', [(typeof (_a = typeof aurelia_router_1.Router !== 'undefined' && aurelia_router_1.Router) === 'function' && _a) || Object])
             ], NavigationCustomElement);
             exports_1("NavigationCustomElement", NavigationCustomElement);
         }
     }
+    var _a;
 });
 //# sourceMappingURL=navigation.js.map

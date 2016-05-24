@@ -32,18 +32,19 @@ System.register(["aurelia-dependency-injection", "../../services/calendar-servic
                     this.calendarService.getCalendars().then(calendars => { this.calendars = calendars; });
                 }
                 edit(id) {
-                    this.router.navigateToRoute('settingsCalendarEdit', { id: id });
+                    this.router.navigateToRoute("settingsCalendarEdit", { id: id });
                 }
                 add(type) {
-                    this.router.navigateToRoute('settingsCalendarCreate', { type: type });
+                    this.router.navigateToRoute("settingsCalendarCreate", { type: type });
                 }
             };
             Calendars = __decorate([
                 aurelia_dependency_injection_1.autoinject(), 
-                __metadata('design:paramtypes', [calendar_service_1.CalendarService, aurelia_router_1.Router])
+                __metadata('design:paramtypes', [calendar_service_1.CalendarService, (typeof (_a = typeof aurelia_router_1.Router !== 'undefined' && aurelia_router_1.Router) === 'function' && _a) || Object])
             ], Calendars);
             exports_1("Calendars", Calendars);
         }
     }
+    var _a;
 });
 //# sourceMappingURL=calendars.js.map

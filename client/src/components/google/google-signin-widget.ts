@@ -1,22 +1,24 @@
 import {autoinject} from "aurelia-dependency-injection";
-import {GoogleService} from "../../services/google-service";
 import {GoogleConfigModel} from "../../rest/calendar/models/google-config-model";
-import {bindable} from "aurelia-templating";
+import {GoogleAuthService} from "../../services/google-auth-service";
+import {GoogleService} from "../../services/google-service";
 
 @autoinject()
 export class GoogleSigninWidgetCustomElement {
 
-  private config: GoogleConfigModel = null;
+  private config: GoogleConfigModel = undefined;
 
-  constructor(private googleService: GoogleService) {
+  constructor(
+    private googleService: GoogleService,
+    private googleAuthService: GoogleAuthService) {
     this.googleService.getConfig().then(config => {
       this.config = config;
     });
   }
 
   public signinSuccess(event: Event): void {
-    const user = gapi.auth2.getAuthInstance().currentUser.get();
-    const authResponse = user.getAuthResponse();
-    this.googleService.setAccessToken(authResponse.access_token);
+    const user: any = gapi.auth2.getAuthInstance().currentUser.get();
+    const authResponse: any = user.getAuthResponse();
+    this.googleAuthService.setAccessToken(authResponse.access_token);
   }
 }

@@ -31,27 +31,28 @@ System.register(["aurelia-dependency-injection", "../../services/calendar-servic
                 }
                 activate(params) {
                     this.model = {
-                        id: null,
+                        id: undefined,
                         type: params.type,
                         name: "",
-                        url: ""
+                        url: "",
                     };
                 }
                 save() {
                     this.calendarService.addCalendar(this.model).then(() => {
-                        this.router.navigateToRoute('settingsCalendars');
+                        this.router.navigateToRoute("settingsCalendars");
                     });
                 }
                 cancel() {
-                    this.router.navigateToRoute('settingsCalendars');
+                    this.router.navigateToRoute("settingsCalendars");
                 }
             };
             CreateCalendar = __decorate([
                 aurelia_dependency_injection_1.autoinject(), 
-                __metadata('design:paramtypes', [calendar_service_1.CalendarService, aurelia_router_1.Router])
+                __metadata('design:paramtypes', [calendar_service_1.CalendarService, (typeof (_a = typeof aurelia_router_1.Router !== 'undefined' && aurelia_router_1.Router) === 'function' && _a) || Object])
             ], CreateCalendar);
             exports_1("CreateCalendar", CreateCalendar);
         }
     }
+    var _a;
 });
 //# sourceMappingURL=create-calendar.js.map

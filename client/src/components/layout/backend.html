@@ -27,44 +27,17 @@
   <require from="../navigation/navigation"></require>
   <require from="../google/google-signin-widget"></require>
 
-  <paper-drawer-panel id="paperDrawerPanel" responsive-width="840px">
-    <!-- Drawer Scroll Header Panel -->
-    <paper-scroll-header-panel drawer fixed>
+  <!-- Main Toolbar -->
+  <paper-toolbar id="mainToolbar" class="tall">
+    <paper-icon-button icon="menu"></paper-icon-button>
+    <navigation></navigation>
+    <div class="space"></div>
+    <google-signin-widget></google-signin-widget>
+  </paper-toolbar>
 
-      <!-- Drawer Toolbar -->
-      <paper-toolbar id="drawerToolbar">
-        <span class="menu-name">Menu</span>
-      </paper-toolbar>
-
-      <!-- Drawer Content -->
-      <navigation></navigation>
-    </paper-scroll-header-panel>
-
-    <!-- Main Area -->
-    <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
-      <!-- Main Toolbar -->
-      <paper-toolbar id="mainToolbar" class="tall">
-        <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-
-        <span class="space"></span>
-        <google-signin-widget></google-signin-widget>
-
-        <!-- Application name -->
-        <div class="middle middle-container">
-          <div class="app-name">Calendar</div>
-        </div>
-
-        <!-- Application sub title -->
-        <div class="bottom bottom-container">
-          <div class="bottom-title">The future of the web today</div>
-        </div>
-      </paper-toolbar>
-
-      <!-- Main Content -->
-      <div class="content">
-        <router-view></router-view>
-      </div>
-    </paper-scroll-header-panel>
-  </paper-drawer-panel>
+  <!-- Main Content -->
+  <div class="content">
+    <router-view></router-view>
+  </div>
 
 </template>

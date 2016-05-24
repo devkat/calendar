@@ -26,7 +26,7 @@ System.register(["aurelia-templating", "aurelia-router"], function(exports_1, co
             };
             __decorate([
                 aurelia_templating_1.bindable(), 
-                __metadata('design:type', aurelia_router_1.NavModel)
+                __metadata('design:type', (typeof (_a = typeof aurelia_router_1.NavModel !== 'undefined' && aurelia_router_1.NavModel) === 'function' && _a) || Object)
             ], NavItemCustomElement.prototype, "model", void 0);
             NavItemCustomElement = __decorate([
                 aurelia_templating_2.containerless, 
@@ -35,5 +35,6 @@ System.register(["aurelia-templating", "aurelia-router"], function(exports_1, co
             exports_1("NavItemCustomElement", NavItemCustomElement);
         }
     }
+    var _a;
 });
 //# sourceMappingURL=nav-item.js.map

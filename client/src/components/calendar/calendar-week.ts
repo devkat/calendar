@@ -7,9 +7,9 @@ import {EventModel} from "../../rest/calendar/models/event-model";
 @autoinject()
 export class CalendarWeekCustomElement {
 
-  private days:number[] = R.range(1, 8);
-  private hours:Object[] = R.range(0, 24).map(h => moment().hour(h).minute(0));
-  private events: EventModel[];
+  public days: number[] = R.range(1, 8);
+  public hours: Object[] = R.range(0, 24).map(h => moment().hour(h).minute(0));
+  public events: EventModel[];
 
   constructor(
     private calendarService: CalendarService

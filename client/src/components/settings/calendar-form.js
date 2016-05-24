@@ -1,4 +1,4 @@
-System.register(["../../services/google-service", "aurelia-dependency-injection"], function(exports_1, context_1) {
+System.register(["aurelia-dependency-injection"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,26 +10,19 @@ System.register(["../../services/google-service", "aurelia-dependency-injection"
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var google_service_1, aurelia_dependency_injection_1;
+    var aurelia_dependency_injection_1;
     var CalendarFormCustomElement;
     return {
         setters:[
-            function (google_service_1_1) {
-                google_service_1 = google_service_1_1;
-            },
             function (aurelia_dependency_injection_1_1) {
                 aurelia_dependency_injection_1 = aurelia_dependency_injection_1_1;
             }],
         execute: function() {
             let CalendarFormCustomElement = class CalendarFormCustomElement {
-                constructor(googleService) {
-                    this.googleService = googleService;
-                    googleService.getCalendars().then(calendars => { this.calendars = calendars; });
-                }
             };
             CalendarFormCustomElement = __decorate([
                 aurelia_dependency_injection_1.autoinject(), 
-                __metadata('design:paramtypes', [google_service_1.GoogleService])
+                __metadata('design:paramtypes', [])
             ], CalendarFormCustomElement);
             exports_1("CalendarFormCustomElement", CalendarFormCustomElement);
         }

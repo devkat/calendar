@@ -1,4 +1,5 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
     "rootDir": "src/",
     "sourceMap": true,
@@ -12,12 +13,9 @@
     "experimentalDecorators": true,
     "moduleResolution": "node"
   },
-  "filesGlob": [
-    "./src/**/*.ts",
-    "./jspm_packages/**/*.d.ts",
-    "./typings/browser.d.ts"
-  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "bower_components",
+    "jspm_packages"
   ]
 }

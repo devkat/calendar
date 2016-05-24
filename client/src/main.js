@@ -1,4 +1,4 @@
-System.register(["./services/session-service", 'i18next-xhr-backend', "font-awesome/css/font-awesome.css!"], function(exports_1, context_1) {
+System.register(["./services/session-service", "i18next-xhr-backend", "font-awesome/css/font-awesome.css!"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var session_service_1, i18next_xhr_backend_1;
@@ -8,15 +8,15 @@ System.register(["./services/session-service", 'i18next-xhr-backend', "font-awes
             .developmentLogging()
             .plugin("aurelia-polymer")
             .plugin("aurelia-html-import-template-loader")
-            .plugin('aurelia-i18n', (instance) => {
+            .plugin("aurelia-i18n", (instance) => {
             instance.i18next.use(i18next_xhr_backend_1.default);
             return instance.setup({
                 backend: {
-                    loadPath: '/locales/{{lng}}/{{ns}}.json',
+                    loadPath: "/locales/{{lng}}/{{ns}}.json",
                 },
-                lng: 'en',
-                attributes: ['t', 'i18n'],
-                fallbackLng: 'en',
+                lng: "en",
+                attributes: ["t", "i18n"],
+                fallbackLng: "en",
                 debug: false,
             });
         });

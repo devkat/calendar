@@ -1,9 +1,4 @@
 <template>
   <require from="./nav-item"></require>
-  <paper-menu class="app-menu" attr-for-selected="data-route" selected="[[route]]">
-    <div class="selectable-content style-scope paper-menu">
-      <nav-item repeat.for="row of router.navigation" model.bind="row"></nav-item>
-    </div>
-  </paper-menu>
-  </paper-menu>
+  <nav-item repeat.for="row of router.navigation" model.bind="row"></nav-item>
 </template>

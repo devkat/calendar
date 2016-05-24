@@ -50,10 +50,11 @@ System.register(["aurelia-dependency-injection", "aurelia-framework", "../rest/c
             };
             CalendarService = __decorate([
                 aurelia_dependency_injection_1.autoinject, 
-                __metadata('design:paramtypes', [aurelia_framework_1.Aurelia, calendar_api_1.CalendarApi])
+                __metadata('design:paramtypes', [(typeof (_a = typeof aurelia_framework_1.Aurelia !== 'undefined' && aurelia_framework_1.Aurelia) === 'function' && _a) || Object, calendar_api_1.CalendarApi])
             ], CalendarService);
             exports_1("CalendarService", CalendarService);
         }
     }
+    var _a;
 });
 //# sourceMappingURL=calendar-service.js.map

@@ -1,5 +1,9 @@
+<link rel="import" href="/bower_components/google-signin/google-signin-aware.html">
+
 <template bindable="model">
+  <require from="../google/google-calendars-menu"></require>
   <paper-input label="Type" i18n="[value]calendarType_${model.type}" disabled></paper-input>
+  <google-calendars-menu></google-calendars-menu>
   <paper-input label="Name" name="name" value.two-way="model.name"></paper-input>
   <paper-input label="URL" name="url" value.two-way="model.url"></paper-input>
 </template>

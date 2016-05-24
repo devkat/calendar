@@ -39,10 +39,11 @@ System.register(["./../../services/session-service", "aurelia-dependency-injecti
             };
             BackendCustomElement = __decorate([
                 aurelia_dependency_injection_1.autoinject(), 
-                __metadata('design:paramtypes', [session_service_1.SessionService, aurelia_router_1.Router])
+                __metadata('design:paramtypes', [session_service_1.SessionService, (typeof (_a = typeof aurelia_router_1.Router !== 'undefined' && aurelia_router_1.Router) === 'function' && _a) || Object])
             ], BackendCustomElement);
             exports_1("BackendCustomElement", BackendCustomElement);
         }
     }
+    var _a;
 });
 //# sourceMappingURL=backend.js.map

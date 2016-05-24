@@ -1,6 +1,8 @@
 <template>
-  <a href.bind="model.href" class="${model.isActive ? 'iron-selected' : ''}">
-    <iron-icon icon="${model.settings.icon}"></iron-icon>
-    <span>${model.settings.name}</span>
+  <a href.bind="model.href">
+    <paper-button active.bind="model.isActive">
+      <iron-icon icon="${model.settings.icon}"></iron-icon>
+      ${model.settings.name}
+    </paper-button>
   </a>
 </template>

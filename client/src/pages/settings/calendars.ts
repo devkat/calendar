@@ -1,6 +1,5 @@
 import {autoinject} from "aurelia-dependency-injection";
 import {CalendarService} from "../../services/calendar-service";
-import {GoogleConfigModel} from "../../rest/calendar/models/google-config-model";
 import {CalendarModel} from "../../rest/calendar/models/calendar-model";
 import {Router} from "aurelia-router";
 
@@ -18,11 +17,11 @@ export class Calendars {
     this.calendarService.getCalendars().then(calendars => { this.calendars = calendars; });
   }
 
-  private edit(id: number): void {
-    this.router.navigateToRoute('settingsCalendarEdit', { id: id });
+  public edit(id: number): void {
+    this.router.navigateToRoute("settingsCalendarEdit", { id: id });
   }
 
-  private add(type: string): void {
-    this.router.navigateToRoute('settingsCalendarCreate', { type: type });
+  public add(type: string): void {
+    this.router.navigateToRoute("settingsCalendarCreate", { type: type });
   }
 }

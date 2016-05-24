@@ -5,9 +5,4 @@ import {GoogleCalendarModel} from "../../rest/calendar/models/google-calendar-mo
 @autoinject()
 export class CalendarFormCustomElement {
 
-  private calendars: GoogleCalendarModel[];
-
-  constructor(private googleService:GoogleService) {
-    googleService.getCalendars().then(calendars => { this.calendars = calendars; });
-  }
 }

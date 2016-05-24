@@ -13,20 +13,20 @@ export class EditCalendar {
     private router: Router
   ) {}
 
-  activate(params) {
+  public activate(params: any): void {
     this.calendarService.getCalendar(params.id).then(calendar => {
       this.model = calendar;
     });
   }
 
-  save() {
+  public save(): void {
     this.calendarService.updateCalendar(this.model).then(() => {
-      this.router.navigateToRoute('settingsCalendars');
+      this.router.navigateToRoute("settingsCalendars");
     });
   }
 
-  cancel() {
-    this.router.navigateToRoute('settingsCalendars');
+  public cancel(): void {
+    this.router.navigateToRoute("settingsCalendars");
   }
 
 }

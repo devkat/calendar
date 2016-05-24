@@ -1,4 +1,4 @@
-System.register(["aurelia-dependency-injection", "aurelia-framework", "../rest/calendar/api/google/google-api", "tsmonad"], function(exports_1, context_1) {
+System.register(["aurelia-dependency-injection", "../rest/calendar/api/google/google-api"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,37 +10,23 @@ System.register(["aurelia-dependency-injection", "aurelia-framework", "../rest/c
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var aurelia_dependency_injection_1, aurelia_framework_1, google_api_1, tsmonad_1;
+    var aurelia_dependency_injection_1, google_api_1;
     var GoogleService;
     return {
         setters:[
             function (aurelia_dependency_injection_1_1) {
                 aurelia_dependency_injection_1 = aurelia_dependency_injection_1_1;
             },
-            function (aurelia_framework_1_1) {
-                aurelia_framework_1 = aurelia_framework_1_1;
-            },
             function (google_api_1_1) {
                 google_api_1 = google_api_1_1;
-            },
-            function (tsmonad_1_1) {
-                tsmonad_1 = tsmonad_1_1;
             }],
         execute: function() {
             let GoogleService = class GoogleService {
-                constructor(app, googleApi) {
-                    this.app = app;
+                constructor(googleApi) {
                     this.googleApi = googleApi;
-                    this._accessToken = tsmonad_1.Maybe.nothing();
                 }
                 getConfig() {
                     return this.googleApi.getConfig();
-                }
-                setAccessToken(accessToken) {
-                    this._accessToken = tsmonad_1.Maybe.just(accessToken);
-                }
-                getAccessToken() {
-                    return this._accessToken;
                 }
                 getCalendars() {
                     return this.googleApi.getCalendars();
@@ -48,7 +34,7 @@ System.register(["aurelia-dependency-injection", "aurelia-framework", "../rest/c
             };
             GoogleService = __decorate([
                 aurelia_dependency_injection_1.autoinject, 
-                __metadata('design:paramtypes', [aurelia_framework_1.Aurelia, google_api_1.GoogleApi])
+                __metadata('design:paramtypes', [google_api_1.GoogleApi])
             ], GoogleService);
             exports_1("GoogleService", GoogleService);
         }

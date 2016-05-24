@@ -26,7 +26,7 @@ lazy val slickCodeGenTask = (sourceManaged, dependencyClasspath in Compile, runn
   Seq(file(fname))
 }
 
-lazy val angularExample = (
+lazy val calendarServer = (
   Project("calendar-server", file("."))
     settings(
       organization := "net.devkat",

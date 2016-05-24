@@ -1,0 +1,18 @@
+<template>
+  <template if.bind="!signedIn">
+    Please sign in to Google.
+  </template>
+  <template if.bind="signedIn">
+    <paper-menu-button>
+      <paper-button class="dropdown-trigger" raised>
+        <span>Select calendar …</span>
+        <iron-icon icon="expand-more"></iron-icon>
+      </paper-button>
+      <paper-menu class="dropdown-content">
+        <paper-item repeat.for="calendar of calendars" tap.trigger="calendar(calendar)">
+          <span>${calendar.name}</span>
+        </paper-item>
+      </paper-menu>
+    </paper-menu-button>
+  </template>
+</template>

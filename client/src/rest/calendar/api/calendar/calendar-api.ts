@@ -4,20 +4,20 @@ import {RestClient} from "../../rest-client";
 import {CalendarModel} from "../../models/calendar-model";
 import {RestApi} from "../rest-api";
 import {EventModel} from "../../models/event-model";
-import Immutable from "immutable";
-import {GoogleService} from "../../../../services/google-service";
+import {GoogleAuthService} from "../../../../services/google-auth-service";
+import {Headers} from "../headers";
 
 @autoinject()
 export class CalendarApi extends RestApi {
 
   private calendarTypesEndpoint: string;
   private calendarsEndpoint: string;
-  private calendarEndpoint: (number) => string;
-  private eventsEndpoint: (number) => string;
+  private calendarEndpoint: (id: number) => string;
+  private eventsEndpoint: (id: number) => string;
 
   constructor(restClient: RestClient,
               private config: Configuration,
-              private googleService: GoogleService) {
+              private googleAuthService: GoogleAuthService) {
     super(restClient);
     this.calendarTypesEndpoint = config.get("rest.endpoints.calendarTypes").asString();
     this.calendarsEndpoint = config.get("rest.endpoints.calendars.calendars").asString();
@@ -25,11 +25,11 @@ export class CalendarApi extends RestApi {
     this.eventsEndpoint = (id: number) => config.get("rest.endpoints.calendars.events").asString().replace(":id", id.toString());
   }
 
-  protected headers(): Immutable.Map<string, string> {
-    const headers = super.headers();
-    return this.googleService.getAccessToken().caseOf({
+  protected headers(): Headers {
+    const headers: Headers = super.headers();
+    return this.googleAuthService.getAccessToken().caseOf({
       just: token => headers.set("Google-Access-Token", token),
-      nothing: () => headers
+      nothing: () => headers,
     });
   }
 

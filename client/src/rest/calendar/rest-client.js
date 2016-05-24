@@ -56,10 +56,11 @@ System.register(["../../config/configuration", "aurelia-fetch-client", "aurelia-
             };
             RestClient = __decorate([
                 aurelia_dependency_injection_1.autoinject(), 
-                __metadata('design:paramtypes', [aurelia_fetch_client_1.HttpClient, configuration_1.Configuration])
+                __metadata('design:paramtypes', [(typeof (_a = typeof aurelia_fetch_client_1.HttpClient !== 'undefined' && aurelia_fetch_client_1.HttpClient) === 'function' && _a) || Object, configuration_1.Configuration])
             ], RestClient);
             exports_1("RestClient", RestClient);
         }
     }
+    var _a;
 });
 //# sourceMappingURL=rest-client.js.map

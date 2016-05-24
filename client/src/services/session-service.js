@@ -51,10 +51,11 @@ System.register(["aurelia-dependency-injection", "aurelia-framework", "../rest/c
             };
             SessionService = __decorate([
                 aurelia_dependency_injection_1.autoinject, 
-                __metadata('design:paramtypes', [aurelia_framework_1.Aurelia, auth_api_1.AuthApi, configuration_1.Configuration])
+                __metadata('design:paramtypes', [(typeof (_a = typeof aurelia_framework_1.Aurelia !== 'undefined' && aurelia_framework_1.Aurelia) === 'function' && _a) || Object, auth_api_1.AuthApi, configuration_1.Configuration])
             ], SessionService);
             exports_1("SessionService", SessionService);
         }
     }
+    var _a;
 });
 //# sourceMappingURL=session-service.js.map
